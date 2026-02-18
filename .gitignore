@@ -1,0 +1,34 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Node / tooling
+node_modules/
+.browserslistrc
+
+# Builds / caches
+.dist/
+dist/
+build/
+.cache/
+.tmp/
+
+# Env / secrets
+.env
+.env.*
+
+# Netlify local state
+.netlify/
+
+# Misc
+*.bak
+*.tmp
+~$*

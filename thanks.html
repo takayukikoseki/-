@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>報告完了 | 在庫点検フォーム</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .success-icon {
+            font-size: 72px;
+            color: #27ae60;
+            margin: 20px 0;
+            line-height: 1;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin-top: 30px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .message {
+            margin: 20px 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        @media (max-width: 480px) {
+            .container {
+                margin: 20px 10px;
+                padding: 25px 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .success-icon {
+                font-size: 48px;
+            }
+            .message {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✓</div>
+        <h1>在庫報告が完了しました</h1>
+        <div class="message">
+            <p>ご協力いただき、誠にありがとうございます。</p>
+            <p>在庫情報は正常に送信されました。</p>
+        </div>
+        <a href="/" class="btn">フォームに戻る</a>
+    </div>
+</body>
+</html>
