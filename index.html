@@ -1,81 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>在庫点検フォーム | VIBE Cafe</title>
     <link rel="stylesheet" href="inventory-style.css">
 </head>
+
 <body>
-<div class="container">
-    <header>
-        <h1>在庫点検フォーム</h1>
-        <p class="subtitle">【残数表】<br>毎週月曜日（休館日は前倒し）に残数を記入し報告してください。</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>在庫点検フォーム</h1>
+            <p class="subtitle">【数字が赤く表示されたら発注目安のサインです】</p>
+        </header>
 
-    <div id="form-container">
-        <form name="inventory" method="POST" action="/" id="inventory-form" data-netlify="true" target="hidden_iframe">
-            <!-- Netlifyでフォームを識別するための隠しフィールド -->
-            <input type="hidden" name="form-name" value="inventory">
-            <!-- ASCII fields for email body lines (must be inside the main form to be submitted) -->
-            <input type="hidden" name="line_01" value="">
-            <input type="hidden" name="line_02" value="">
-            <input type="hidden" name="line_03" value="">
-            <input type="hidden" name="line_04" value="">
-            <input type="hidden" name="line_05" value="">
-            <input type="hidden" name="line_06" value="">
-            <input type="hidden" name="line_07" value="">
-            <input type="hidden" name="line_08" value="">
-            <input type="hidden" name="line_09" value="">
-            <input type="hidden" name="line_10" value="">
-            <input type="hidden" name="line_11" value="">
-            <input type="hidden" name="line_12" value="">
-            <input type="hidden" name="line_13" value="">
-            <input type="hidden" name="line_14" value="">
-            <input type="hidden" name="line_15" value="">
-            <input type="hidden" name="line_16" value="">
-            <input type="hidden" name="line_17" value="">
-            <input type="hidden" name="line_18" value="">
-            <input type="hidden" name="line_19" value="">
-            <input type="hidden" name="line_20" value="">
-            <input type="hidden" name="line_21" value="">
-            <input type="hidden" name="line_22" value="">
-            <input type="hidden" name="line_23" value="">
-            <input type="hidden" name="line_24" value="">
-            <input type="hidden" name="line_25" value="">
-            <input type="hidden" name="line_26" value="">
-            <input type="hidden" name="line_27" value="">
-            <input type="hidden" name="line_28" value="">
-            <input type="hidden" name="line_29" value="">
-            <input type="hidden" name="line_30" value="">
-            
-            <ul class="item-list">
-            </ul>
+        <div id="form-container">
+            <form name="inventory" method="POST" action="/" id="inventory-form" data-netlify="true"
+                target="hidden_iframe">
+                <!-- Netlifyでフォームを識別するための隠しフィールド -->
+                <input type="hidden" name="form-name" value="inventory">
+                <!-- ASCII fields for email body lines (must be inside the main form to be submitted) -->
+                <input type="hidden" name="line_01" value="">
+                <input type="hidden" name="line_02" value="">
+                <input type="hidden" name="line_03" value="">
+                <input type="hidden" name="line_04" value="">
+                <input type="hidden" name="line_05" value="">
+                <input type="hidden" name="line_06" value="">
+                <input type="hidden" name="line_07" value="">
+                <input type="hidden" name="line_08" value="">
+                <input type="hidden" name="line_09" value="">
+                <input type="hidden" name="line_10" value="">
+                <input type="hidden" name="line_11" value="">
+                <input type="hidden" name="line_12" value="">
+                <input type="hidden" name="line_13" value="">
+                <input type="hidden" name="line_14" value="">
+                <input type="hidden" name="line_15" value="">
+                <input type="hidden" name="line_16" value="">
+                <input type="hidden" name="line_17" value="">
+                <input type="hidden" name="line_18" value="">
+                <input type="hidden" name="line_19" value="">
+                <input type="hidden" name="line_20" value="">
+                <input type="hidden" name="line_21" value="">
+                <input type="hidden" name="line_22" value="">
+                <input type="hidden" name="line_23" value="">
+                <input type="hidden" name="line_24" value="">
+                <input type="hidden" name="line_25" value="">
+                <input type="hidden" name="line_26" value="">
+                <input type="hidden" name="line_27" value="">
+                <input type="hidden" name="line_28" value="">
+                <input type="hidden" name="line_29" value="">
+                <input type="hidden" name="line_30" value="">
 
-            <div class="notes">
-                <h2>発注の目安と発注先</h2>
-                <p class="order-guideline">各品、在庫が2週間分を切る前に発注してください。（納品に時間が掛かる物もあるため、早めの対応をお願いします）</p>
-                <dl class="supplier-list">
-                    <dt>★</dt><dd>ユニマット</dd>
-                    <dt>●</dt><dd>アスクル</dd>
-                    <dt>☆</dt><dd>常務へ依頼</dd>
-                </dl>
+                <ul class="item-list">
+                </ul>
+
+                <div class="notes">
+                    <h2>発注の目安と発注先</h2>
+                    <p class="order-guideline">各品、在庫が2週間分を切る前に発注してください。（納品に時間が掛かる物もあるため、早めの対応をお願いします）</p>
+                    <dl class="supplier-list">
+                        <dt>★</dt>
+                        <dd>ユニマット</dd>
+                        <dt>●</dt>
+                        <dd>アスクル</dd>
+                        <dt>☆</dt>
+                        <dd>常務へ依頼</dd>
+                    </dl>
+                </div>
+
+                <!-- Netlifyで受信するメールの件名 -->
+                <input type="hidden" name="_subject" value="【在庫点検報告】">
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">この内容で報告する</button>
+                    <button type="reset" class="btn btn-secondary">フォームをクリア</button>
+                </div>
+            </form>
+            <div id="thank-you-message"
+                style="display: none; text-align: center; padding: 40px; font-size: 24px; color: #4CAF50; font-weight: bold;">
+                点検ありがとうございました
             </div>
-        
-        <!-- Netlifyで受信するメールの件名 -->
-            <input type="hidden" name="_subject" value="【在庫点検報告】">
-
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">この内容で報告する</button>
-                <button type="reset" class="btn btn-secondary">フォームをクリア</button>
-            </div>
-        </form>
-        <div id="thank-you-message" style="display: none; text-align: center; padding: 40px; font-size: 24px; color: #4CAF50; font-weight: bold;">
-            点検ありがとうございました
         </div>
     </div>
-</div>
-    
+
     <!-- Hidden fallback form to help Netlify detect the form at build time -->
     <form name="inventory" method="POST" action="/" data-netlify="true" hidden>
         <input type="hidden" name="form-name" value="inventory">
@@ -85,12 +92,12 @@
     <iframe name="hidden_iframe" style="display:none"></iframe>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('inventory-form');
             const formContainer = document.getElementById('form-container');
             const thankYouMessage = document.getElementById('thank-you-message');
-            
-            form.addEventListener('submit', function() {
+
+            form.addEventListener('submit', function () {
                 // 送信直前にhidden(品名)へ数量を同期（未選択は0）
                 items.forEach(item => {
                     const sel = document.getElementById(item.id);
@@ -105,41 +112,40 @@
                     lines.push(`- ${item.name}: ${qty}`);
                 });
                 for (let i = 1; i <= 30; i++) {
-                    const f = form.querySelector(`input[name="line_${String(i).padStart(2,'0')}"]`);
-                    if (f) f.value = lines[i-1] || '';
+                    const f = form.querySelector(`input[name="line_${String(i).padStart(2, '0')}"]`);
+                    if (f) f.value = lines[i - 1] || '';
                 }
                 // 見た目は即サンクスに切り替え（送信はhidden iframeで継続）
                 form.style.display = 'none';
                 thankYouMessage.style.display = 'block';
             });
-            
+
             // --- 在庫アイテムの定義 ---
             const items = [
-                { id: 'coffee_vest', name: '★コーヒー豆（ヴｴスト）' },
-                { id: 'coffee_bullman', name: '★コーヒー豆（ストロングブレンド）' },
-                { id: 'creamy_powder', name: '★クリーミーパウダー' },
-                { id: 'cocoa_powder', name: '★ココアパウダー' },
-                { id: 'milktea_powder', name: '★ミルクティーパウダー' },
-                { id: 'hot_cup_lid', name: '★HOTカップ用の蓋 (1袋50入)' },
-                { id: 'sencha', name: '★煎茶' },
-                { id: 'black_tea', name: '★紅茶' },
-                { id: 'barley_tea', name: '★麦茶' },
-                { id: 'corn_soup', name: '★コーンスープ' },
-                { id: 'onion_soup', name: '★オニオンスープ' },
-                { id: 'cup_3oz', name: '●３オンスカップ (1袋100入)' },
-                { id: 'cup_3oz_lid', name: '●３オンスカップ（蓋） (1袋50入)' },
-                { id: 'cup_1oz', name: '●１オンスカップ蓋セット (1袋50入)' },
-                { id: 'plastic_spoon', name: '●プラスプーン (1袋100入)' },
-                { id: 'cup_hot', name: '☆カップ（HOT) (1袋50入)' },
-                { id: 'cup_ice', name: '☆カップ（ICE) (1袋50入)' },
-                { id: 'ice_cup_lid', name: '☆ICEカップ用の蓋 (1袋100入)' }
+                { id: 'coffee_vest', name: '★コーヒー豆（ヴｴスト）', threshold: 5 },
+                { id: 'coffee_bullman', name: '★コーヒー豆（ストロングブレンド）', threshold: 8 },
+                { id: 'creamy_powder', name: '★クリーミーパウダー', threshold: 12 },
+                { id: 'cocoa_powder', name: '★ココアパウダー', threshold: 5 },
+                { id: 'milktea_powder', name: '★ミルクティーパウダー', threshold: 10 },
+                { id: 'hot_cup_lid', name: '★HOTカップ用の蓋 (1袋50入)', threshold: 5 },
+                { id: 'sencha', name: '★煎茶', threshold: 3 },
+                { id: 'black_tea', name: '★紅茶', threshold: 0 },
+                { id: 'barley_tea', name: '★麦茶', threshold: 3 },
+                { id: 'onion_soup', name: '★オニオンスープ', threshold: 2 },
+                { id: 'cup_3oz', name: '●３オンスカップ (1袋100入)', threshold: 10 },
+                { id: 'cup_3oz_lid', name: '●３オンスカップ（蓋） (1袋50入)', threshold: 5 },
+                { id: 'cup_1oz', name: '●１オンスカップ蓋セット (1袋50入)', threshold: 10 },
+                { id: 'plastic_spoon', name: '●プラスプーン (1袋100入)', threshold: 5 },
+                { id: 'cup_hot', name: '☆カップ（HOT) (1袋50入)', threshold: 20 },
+                { id: 'cup_ice', name: '☆カップ（ICE) (1袋50入)', threshold: 13 },
+                { id: 'ice_cup_lid', name: '☆ICEカップ用の蓋 (1袋100入)', threshold: 5 }
             ];
 
             // --- Dynamically create the list items with dropdowns ---
             const itemList = document.querySelector('.item-list');
             items.forEach(item => {
                 const listItem = document.createElement('li');
-                
+
                 const label = document.createElement('label');
                 label.htmlFor = item.id;
                 label.textContent = item.name;
@@ -174,7 +180,17 @@
                 hidden.value = '';
                 // 選択変更時に同期
                 select.addEventListener('change', () => {
-                    hidden.value = select.value || '0';
+                    const val = select.value;
+                    hidden.value = val || '0';
+
+                    // 赤字ロジック: 値が選ばれていて、且つ閾値以下なら赤くする
+                    if (val !== "" && parseInt(val, 10) <= item.threshold) {
+                        select.style.color = "red";
+                        select.style.fontWeight = "bold";
+                    } else {
+                        select.style.color = "";
+                        select.style.fontWeight = "";
+                    }
                 });
                 listItem.appendChild(hidden);
                 itemList.appendChild(listItem);
@@ -183,4 +199,5 @@
         });
     </script>
 </body>
+
 </html>
