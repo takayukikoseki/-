@@ -115,24 +115,23 @@
             
             // --- 在庫アイテムの定義 ---
             const items = [
-                { id: 'coffee_vest', name: '★コーヒー豆（ヴｴスト）' },
-                { id: 'coffee_bullman', name: '★コーヒー豆（ストロングブレンド）' },
-                { id: 'creamy_powder', name: '★クリーミーパウダー' },
-                { id: 'cocoa_powder', name: '★ココアパウダー' },
-                { id: 'milktea_powder', name: '★ミルクティーパウダー' },
-                { id: 'hot_cup_lid', name: '★HOTカップ用の蓋 (1袋50入)' },
-                { id: 'sencha', name: '★煎茶' },
-                { id: 'black_tea', name: '★紅茶' },
-                { id: 'barley_tea', name: '★麦茶' },
-                { id: 'corn_soup', name: '★コーンスープ' },
-                { id: 'onion_soup', name: '★オニオンスープ' },
-                { id: 'cup_3oz', name: '●３オンスカップ (1袋100入)' },
-                { id: 'cup_3oz_lid', name: '●３オンスカップ（蓋） (1袋50入)' },
-                { id: 'cup_1oz', name: '●１オンスカップ蓋セット (1袋50入)' },
-                { id: 'plastic_spoon', name: '●プラスプーン (1袋100入)' },
-                { id: 'cup_hot', name: '☆カップ（HOT) (1袋50入)' },
-                { id: 'cup_ice', name: '☆カップ（ICE) (1袋50入)' },
-                { id: 'ice_cup_lid', name: '☆ICEカップ用の蓋 (1袋100入)' }
+                { id: 'coffee_vest', name: '★コーヒー豆（ヴｴスト）', threshold: 5 },
+                { id: 'coffee_bullman', name: '★コーヒー豆（ストロングブレンド）', threshold: 8 },
+                { id: 'creamy_powder', name: '★クリーミーパウダー', threshold: 12 },
+                { id: 'cocoa_powder', name: '★ココアパウダー', threshold: 5 },
+                { id: 'milktea_powder', name: '★ミルクティーパウダー', threshold: 10 },
+                { id: 'hot_cup_lid', name: '★HOTカップ用の蓋 (1袋50入)', threshold: 5 },
+                { id: 'sencha', name: '★煎茶', threshold: 3 },
+                { id: 'black_tea', name: '★紅茶', threshold: 0 },
+                { id: 'barley_tea', name: '★麦茶', threshold: 3 },
+                { id: 'onion_soup', name: '★オニオンスープ', threshold: 2 },
+                { id: 'cup_3oz', name: '●３オンスカップ (1袋100入)', threshold: 10 },
+                { id: 'cup_3oz_lid', name: '●３オンスカップ（蓋） (1袋50入)', threshold: 5 },
+                { id: 'cup_1oz', name: '●１オンスカップ蓋セット (1袋50入)', threshold: 10 },
+                { id: 'plastic_spoon', name: '●プラスプーン (1袋100入)', threshold: 5 },
+                { id: 'cup_hot', name: '☆カップ（HOT) (1袋50入)', threshold: 20 },
+                { id: 'cup_ice', name: '☆カップ（ICE) (1袋50入)', threshold: 13 },
+                { id: 'ice_cup_lid', name: '☆ICEカップ用の蓋 (1袋100入)', threshold: 5 }
             ];
 
             // --- Dynamically create the list items with dropdowns ---
@@ -173,7 +172,17 @@
                 hidden.name = item.name; // フィールド名=品名
                 hidden.value = '';
                 select.addEventListener('change', () => {
-                    hidden.value = select.value || '0';
+                    const val = select.value;
+                    hidden.value = val || '0';
+                    
+                    // 赤字ロジック: 値が選ばれていて、かつ閾値以下なら赤くする
+                    if (val !== "" && parseInt(val, 10) <= item.threshold) {
+                        select.style.color = "red";
+                        select.style.fontWeight = "bold";
+                    } else {
+                        select.style.color = "";
+                        select.style.fontWeight = "";
+                    }
                 });
                 listItem.appendChild(hidden);
                 itemList.appendChild(listItem);
